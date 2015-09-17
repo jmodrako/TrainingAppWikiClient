@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WikipediaClient</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_enter_query">Enter query text</string>
+    <string name="error_no_results">No results. Enter query text.</string>
+
+    <string name="dialog_network_error_title">Error</string>
+    <string name="dialog_network_error_message">Network connection is required. Connect now ?</string>
+    <string name="dialog_network_error_button_yes">Yes</string>
+    <string name="dialog_network_error_button_no">No</string>
+
+</resources>
