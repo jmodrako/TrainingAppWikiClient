@@ -27,6 +27,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+    }
 }
 
 dependencies {
@@ -38,4 +45,8 @@ dependencies {
     compile 'org.androidannotations:androidannotations-api:3.3.2'
 
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.4.2'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.2'
 }

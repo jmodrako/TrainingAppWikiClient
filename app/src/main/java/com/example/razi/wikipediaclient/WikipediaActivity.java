@@ -178,9 +178,10 @@ public class WikipediaActivity
 //                    searchQueryLoader(editTextQuery.getText().toString());
 
 					final WikiApi wikiApi = Connection.createApi();
-					wikiApi.wikiSearch("Joseph_Fourier", new Callback<String>() {
-						@Override public void success(String s, Response response) {
-							Toast.makeText(WikipediaActivity.this, s, Toast.LENGTH_SHORT).show();
+					wikiApi.wikiSearch("Joseph_Fourier", new Callback<MainResponseModel>() {
+						@Override public void success(MainResponseModel s, Response response) {
+							Toast.makeText(WikipediaActivity.this, s.toString(),
+									Toast.LENGTH_SHORT).show();
 						}
 
 						@Override public void failure(RetrofitError error) {
