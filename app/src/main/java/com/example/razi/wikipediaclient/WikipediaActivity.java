@@ -26,8 +26,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.razi.wikipediaclient.dialogs.NetworkErrorDialog;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class WikipediaActivity
         extends Activity
@@ -170,7 +175,18 @@ public class WikipediaActivity
 
                     // searchQueryAsyncTask(editTextQuery.getText().toString());
 
-                    searchQueryLoader(editTextQuery.getText().toString());
+//                    searchQueryLoader(editTextQuery.getText().toString());
+
+					final WikiApi wikiApi = Connection.createApi();
+					wikiApi.wikiSearch("Joseph_Fourier", new Callback<String>() {
+						@Override public void success(String s, Response response) {
+							Toast.makeText(WikipediaActivity.this, s, Toast.LENGTH_SHORT).show();
+						}
+
+						@Override public void failure(RetrofitError error) {
+							Toast.makeText(WikipediaActivity.this, "ERROR: " + error, Toast.LENGTH_SHORT).show();
+						}
+					});
 
                     InputMethodManager imm =
                             (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
