@@ -1,11 +1,21 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+def PACKAGE_NAME = "com.example.razi.wikipediaclient"
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName PACKAGE_NAME
+    }
+}
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "com.example.razi.wikipediaclient"
+        applicationId PACKAGE_NAME
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
@@ -21,4 +31,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'io.realm:realm-android:0.82.2'
+
+    apt 'org.androidannotations:androidannotations:3.3.2'
+    compile 'org.androidannotations:androidannotations-api:3.3.2'
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
