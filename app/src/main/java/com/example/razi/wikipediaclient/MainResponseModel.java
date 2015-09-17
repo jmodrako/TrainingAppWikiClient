@@ -12,5 +12,11 @@ public class MainResponseModel {
 	@JsonProperty boolean batchcomplete;
 	@JsonProperty QueryModel query;
 
+	public boolean isBatchcomplete() {
+		return batchcomplete;
+	}
 
+	public QueryModel getQuery() {
+		return query;
+	}
 }

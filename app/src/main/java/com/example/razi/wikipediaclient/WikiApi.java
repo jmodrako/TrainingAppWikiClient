@@ -14,4 +14,7 @@ public interface WikiApi {
 
 	@GET("/w/api.php?format=json&action=query&prop=extracts|pageimages|images|info&exintro=&explaintext=&formatversion=2")
 	void wikiSearch(@Query("titles") String query, Callback<MainResponseModel> callback);
+
+	@GET("/w/api.php?format=json&action=query&prop=extracts|pageimages|images|info&exintro=&explaintext=&formatversion=2")
+	MainResponseModel wikiSearch(@Query("titles") String query);
 }

@@ -12,4 +12,8 @@ import java.util.List;
 public class QueryModel {
 
 	@JsonProperty List<PageModel> pages;
+
+	public List<PageModel> getPages() {
+		return pages;
+	}
 }
